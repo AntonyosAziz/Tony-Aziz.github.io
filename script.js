@@ -24,21 +24,36 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Parallax effect for skill bubbles
+// Enhanced skill bubble interactions
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const skillBubbles = document.querySelectorAll('.skill-bubble');
+    const heroSection = document.querySelector('.hero-section');
 
-    skillBubbles.forEach((bubble, index) => {
-        const speed = 0.2 + (index * 0.05);
-        const yPos = -(scrolled * speed);
-        const rotateAmount = scrolled * 0.1;
+    if (heroSection) {
+        const heroRect = heroSection.getBoundingClientRect();
+        const heroVisible = heroRect.top < window.innerHeight && heroRect.bottom > 0;
 
-        // Only apply parallax if not being hovered
-        if (!bubble.matches(':hover')) {
-            bubble.style.transform = `translateY(${yPos}px) rotate(${rotateAmount}deg)`;
+        // Only apply scroll effects when hero is visible and not being hovered
+        if (heroVisible) {
+            skillBubbles.forEach((bubble, index) => {
+                if (!bubble.matches(':hover')) {
+                    const rotateAmount = scrolled * 0.05;
+                    const currentTransform = bubble.style.transform || '';
+
+                    // Preserve existing transform values and add rotation
+                    if (currentTransform.includes('translateX')) {
+                        const translateMatch = currentTransform.match(/translateX\([^)]+\)/);
+                        const translateX = translateMatch ? translateMatch[0] : 'translateX(-50%)';
+                        const translateY = currentTransform.includes('translateY') ?
+                            currentTransform.match(/translateY\([^)]+\)/)?.[0] || 'translateY(0px)' : 'translateY(0px)';
+
+                        bubble.style.transform = `${translateX} ${translateY} rotate(${rotateAmount}deg)`;
+                    }
+                }
+            });
         }
-    });
+    }
 });
 
 // Intersection Observer for fade-in animations
