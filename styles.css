@@ -117,55 +117,101 @@ body {
     height: 100%;
     pointer-events: none;
     max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .skill-bubble {
     position: absolute;
-    width: 190px;
-    height: 190px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     text-align: center;
     color: #FFF;
-    animation: float 6s ease-in-out infinite;
+    animation: dropAndColor 4s ease-out forwards, colorChange 3s ease-in-out infinite 4s;
     transition: all 0.3s ease;
     cursor: pointer;
+    opacity: 0;
+    transform: translateY(-100vh);
 }
 
 .skill-bubble:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    transform: translateY(-5px) scale(1.1);
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 3px solid rgba(255, 255, 255, 0.6) !important;
+    transform: translateX(-50%) translateY(-10px) scale(1.15) !important;
     animation-play-state: paused;
     z-index: 10;
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
 }
 
-.skill-1 { top: 5%; left: 15%; animation-delay: 0s; }
-.skill-2 { top: 5%; left: 45%; animation-delay: 1s; }
-.skill-3 { top: 20%; left: 75%; animation-delay: 2s; }
-.skill-4 { top: 45%; left: 85%; animation-delay: 3s; }
-.skill-5 { top: 70%; left: 75%; animation-delay: 4s; }
-.skill-6 { top: 85%; left: 45%; animation-delay: 5s; }
-.skill-7 { top: 85%; left: 15%; animation-delay: 1.5s; }
-.skill-8 { top: 70%; left: 5%; animation-delay: 2.5s; }
-.skill-9 { top: 45%; left: 5%; animation-delay: 3.5s; }
+/* Triangle Formation - Row 1 (top) */
+.skill-1 { top: -80px; left: 50%; transform: translateX(-50%) translateY(-100vh); animation-delay: 0.2s; }
 
-@keyframes float {
+/* Triangle Formation - Row 2 */
+.skill-7 { top: -20px; left: 35%; transform: translateX(-50%) translateY(-100vh); animation-delay: 0.4s; }
+.skill-8 { top: -20px; left: 65%; transform: translateX(-50%) translateY(-100vh); animation-delay: 0.6s; }
+
+/* Triangle Formation - Row 3 */
+.skill-6 { top: 40px; left: 20%; transform: translateX(-50%) translateY(-100vh); animation-delay: 0.8s; }
+.skill-2 { top: 40px; left: 50%; transform: translateX(-50%) translateY(-100vh); animation-delay: 1.0s; }
+.skill-3 { top: 40px; left: 80%; transform: translateX(-50%) translateY(-100vh); animation-delay: 1.2s; }
+
+/* Triangle Formation - Row 4 */
+.skill-4 { top: 100px; left: 35%; transform: translateX(-50%) translateY(-100vh); animation-delay: 1.4s; }
+.skill-5 { top: 100px; left: 65%; transform: translateX(-50%) translateY(-100vh); animation-delay: 1.6s; }
+
+/* Triangle Formation - Row 5 (bottom) */
+.skill-9 { top: 160px; left: 50%; transform: translateX(-50%) translateY(-100vh); animation-delay: 1.8s; }
+
+@keyframes dropAndColor {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-100vh) rotate(0deg);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+    70% {
+        transform: translateX(-50%) translateY(0px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0px) rotate(0deg);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes colorChange {
     0%, 100% {
-        transform: translateY(0px) rotate(0deg) scale(1);
-        opacity: 0.8;
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateX(-50%) translateY(0px) scale(1);
+    }
+    25% {
+        background: rgba(223, 37, 49, 0.8);
+        border-color: #DF2531;
+        transform: translateX(-50%) translateY(-5px) scale(1.05);
     }
     50% {
-        transform: translateY(-15px) rotate(2deg) scale(1.05);
-        opacity: 1;
+        background: rgba(0, 0, 0, 0.8);
+        border-color: #000;
+        transform: translateX(-50%) translateY(0px) scale(1);
+    }
+    75% {
+        background: rgba(223, 37, 49, 0.8);
+        border-color: #DF2531;
+        transform: translateX(-50%) translateY(-5px) scale(1.05);
     }
 }
 
