@@ -549,9 +549,13 @@ body {
     }
 
     .skill-bubble {
-        width: 160px;
-        height: 160px;
-        font-size: 20px;
+        width: 140px;
+        height: 140px;
+        font-size: 18px;
+    }
+
+    .skills-bubbles {
+        transform: translate(-50%, -50%) scale(0.9);
     }
 
     .projects-container {
@@ -573,14 +577,21 @@ body {
 
 @media (max-width: 992px) {
     .skills-bubbles {
-        transform: translate(-50%, -50%) scale(0.8);
+        transform: translate(-50%, -50%) scale(0.7);
     }
 
     .skill-bubble {
-        width: 140px;
-        height: 140px;
-        font-size: 18px;
+        width: 120px;
+        height: 120px;
+        font-size: 16px;
     }
+
+    /* Adjust triangle spacing for smaller screens */
+    .skill-1 { top: -60px; }
+    .skill-7, .skill-8 { top: -10px; }
+    .skill-6, .skill-2, .skill-3 { top: 30px; }
+    .skill-4, .skill-5 { top: 80px; }
+    .skill-9 { top: 130px; }
 }
 
 @media (max-width: 768px) {
@@ -606,7 +617,7 @@ body {
         position: relative;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 15px;
         padding: 20px;
         max-width: 100%;
         width: 100%;
@@ -618,11 +629,13 @@ body {
 
     .skill-bubble {
         position: relative;
-        width: 150px;
-        height: 150px;
-        font-size: 18px;
-        animation: none;
+        width: 120px;
+        height: 120px;
+        font-size: 16px;
+        animation: mobileColorChange 3s ease-in-out infinite;
         margin: 0 auto;
+        opacity: 1;
+        transform: none;
     }
 
     .skill-1, .skill-2, .skill-3, .skill-4, .skill-5,
@@ -630,6 +643,19 @@ body {
         top: auto;
         left: auto;
         right: auto;
+        transform: none;
+        animation-delay: 0s;
+    }
+
+    @keyframes mobileColorChange {
+        0%, 100% {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        50% {
+            background: rgba(223, 37, 49, 0.6);
+            border-color: #DF2531;
+        }
     }
     
     .hero-section {
