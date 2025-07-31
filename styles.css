@@ -343,9 +343,10 @@ body {
 
 .social-links {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 30px;
     min-width: 250px;
+    align-items: center;
 }
 
 .social-item {
