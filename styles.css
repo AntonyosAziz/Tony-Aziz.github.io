@@ -539,7 +539,33 @@ body {
     }
     
     .skills-bubbles {
-        display: none;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none;
+    }
+
+    .skill-bubble {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        font-size: 18px;
+        animation: none;
+        margin: 0 auto;
+    }
+
+    .skill-1, .skill-2, .skill-3, .skill-4, .skill-5,
+    .skill-6, .skill-7, .skill-8, .skill-9 {
+        top: auto;
+        left: auto;
+        right: auto;
     }
     
     .hero-section {
