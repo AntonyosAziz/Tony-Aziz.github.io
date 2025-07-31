@@ -5,69 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tony Aziz - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="main-header">
         <nav class="navigation">
-            <h1 class="site-title">Tony Aziz</h1>
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 41 41" fill="none">
+                    <path d="M20.5 0L41 20.5L20.5 41L0 20.5L20.5 0Z" stroke="#DF2531" stroke-width="2"/>
+                </svg>
+            </div>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#projects" class="nav-button">Projects</a></li>
+                <li><a href="#about" class="nav-button">About</a></li>
+                <li><a href="#contact" class="nav-button">Get in Touch</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="main-content">
         <section class="hero-section" id="hero">
-            <div class="hero-content">
-                <h2 class="hero-title">Welcome to My Portfolio</h2>
-                <p class="hero-description">I'm a developer passionate about creating amazing web experiences.</p>
-                <a href="#projects" class="cta-button">View My Work</a>
+            <div class="skills-bubbles">
+                <div class="skill-bubble skill-1">Branddesign</div>
+                <div class="skill-bubble skill-2">Webdesign</div>
+                <div class="skill-bubble skill-3">photografie</div>
+                <div class="skill-bubble skill-4">Coder</div>
+                <div class="skill-bubble skill-5">Graphic Designer</div>
+                <div class="skill-bubble skill-6">Calligraph</div>
+                <div class="skill-bubble skill-7">Layouting</div>
+                <div class="skill-bubble skill-8">Marketing</div>
+                <div class="skill-bubble skill-9">Social Media</div>
             </div>
-        </section>
-
-        <section class="about-section" id="about">
-            <div class="section-content">
-                <h2 class="section-title">About Me</h2>
-                <p class="about-text">Hello! I'm Tony, a passionate developer who loves building innovative solutions and creating meaningful digital experiences.</p>
+            <div class="hero-content">
+                <h1 class="hero-title">TONY'S<br>Portfolio</h1>
             </div>
         </section>
 
         <section class="projects-section" id="projects">
-            <div class="section-content">
-                <h2 class="section-title">My Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h3 class="project-title">Project 1</h3>
-                        <p class="project-description">Description of your first project goes here.</p>
-                        <a href="#" class="project-link">View Project</a>
-                    </div>
-                    <div class="project-card">
-                        <h3 class="project-title">Project 2</h3>
-                        <p class="project-description">Description of your second project goes here.</p>
-                        <a href="#" class="project-link">View Project</a>
-                    </div>
+            <div class="projects-container">
+                <div class="project-card large-left">
+                    <h3 class="project-title">Milab Milano<br><span class="project-subtitle">Branddesign</span></h3>
                 </div>
+                <div class="project-card empty-1"></div>
+                <div class="project-card large-right">
+                    <h3 class="project-title right-align">Am I Dreaming<br><span class="project-subtitle">PosterDesign</span></h3>
+                </div>
+                <div class="project-card empty-2"></div>
+                <div class="project-card empty-3"></div>
+                <div class="project-card large-bottom">
+                    <h3 class="project-title">Sentinel<br><span class="project-subtitle">Schriftdesign</span></h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="about-content">
+                <div class="profile-circle">
+                    <img src="https://cdn.builder.io/api/v1/image/assets%2F447ecdb655a74c039cf35f34bde31334%2F3ab8623896e04f8e81e04cf727584a18?format=webp&width=800" alt="Tony Aziz" class="profile-image">
+                </div>
+                <h2 class="about-title">I'm a student</h2>
+                <p class="about-description">
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+                </p>
             </div>
         </section>
 
         <section class="contact-section" id="contact">
-            <div class="section-content">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="contact-text">I'd love to hear from you. Let's connect!</p>
-                <div class="contact-links">
-                    <a href="mailto:your.email@example.com" class="contact-link">Email</a>
-                    <a href="https://github.com/Tony-Aziz" class="contact-link">GitHub</a>
-                    <a href="https://linkedin.com/in/your-profile" class="contact-link">LinkedIn</a>
+            <div class="contact-container">
+                <h2 class="contact-title">Let's get in touch!</h2>
+                <div class="contact-content">
+                    <div class="social-links">
+                        <div class="social-item">
+                            <svg class="instagram-icon" viewBox="0 0 208 50">
+                                <rect width="208" height="50" rx="25" fill="white"/>
+                                <text x="104" y="32" text-anchor="middle" fill="black" font-family="Orbitron" font-size="18">tony.aziz.412</text>
+                            </svg>
+                        </div>
+                        <div class="social-item">
+                            <svg class="linkedin-icon" viewBox="0 0 50 50">
+                                <path d="M45.771 0H3.651C1.635 0 0 1.596 0 3.563V46.176C0 48.142 1.635 49.738 3.651 49.738H45.771C47.79 49.738 49.425 48.141 49.425 46.176V3.563C49.425 1.595 47.789 0 45.771 0ZM14.981 41.637H7.516V19.178H14.981V41.637ZM11.249 16.11H11.199C8.695 16.11 7.075 14.385 7.075 12.23C7.075 10.027 8.745 8.35 11.298 8.35C13.852 8.35 15.423 10.027 15.473 12.23C15.473 14.385 13.851 16.11 11.249 16.11ZM41.9 41.637H34.435V29.619C34.435 26.601 33.355 24.541 30.654 24.541C28.592 24.541 27.364 25.93 26.823 27.272C26.626 27.751 26.578 28.421 26.578 29.093V41.636H19.113C19.113 41.636 19.211 21.282 19.113 19.177H26.578V22.356C27.57 20.826 29.344 18.647 33.307 18.647C38.218 18.647 41.901 21.858 41.901 28.757L41.9 41.637Z" fill="white"/>
+                            </svg>
+                            <div class="linkedin-text">Antonios Aziz</div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <input type="email" placeholder="Your Email" class="form-input">
+                            </div>
+                            <div class="input-group">
+                                <input type="text" placeholder="Subject" class="form-input">
+                            </div>
+                        </div>
+                        <div class="textarea-group">
+                            <textarea placeholder="Tell me more..." class="form-textarea"></textarea>
+                            <button class="send-button">
+                                <svg viewBox="0 0 35 36" fill="none">
+                                    <path d="M34.0912 16.9212L2.79079 1.1396C1.21703 0.438192 -0.531602 1.841 0.167849 3.41916L4.53942 15.1677L24.4738 18.4994L4.53942 21.831L0.167849 33.5796C-0.35674 35.1577 1.21703 36.5605 2.79079 35.6838L34.0912 19.9022C35.3153 19.3761 35.3153 17.6226 34.0912 16.9212Z" fill="white"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-
-    <footer class="main-footer">
-        <p class="footer-text">&copy; 2024 Tony Aziz. All rights reserved.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
