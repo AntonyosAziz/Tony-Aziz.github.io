@@ -143,7 +143,33 @@ window.addEventListener('load', function() {
     }
 });
 
+// Function to restart skill bubble animation
+function restartSkillAnimation() {
+    const skillBubbles = document.querySelectorAll('.skill-bubble');
+    skillBubbles.forEach(bubble => {
+        bubble.style.animation = 'none';
+        bubble.offsetHeight; // Trigger reflow
+        bubble.style.animation = 'dropAndColor 4s ease-out forwards, colorChange 3s ease-in-out infinite 4s';
+    });
+}
+
+// Restart animation when page loads
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        restartSkillAnimation();
+    }, 500);
+});
+
+// Add keyboard shortcut to restart animation (press 'R' key)
+document.addEventListener('keydown', function(e) {
+    if (e.key.toLowerCase() === 'r' && !e.ctrlKey && !e.metaKey) {
+        restartSkillAnimation();
+        console.log('🎯 Animation restarted! Press R to restart again.');
+    }
+});
+
 // Console greeting
 console.log('🎨 Welcome to Tony\'s Portfolio!');
 console.log('✨ Design • Code • Create');
 console.log('📧 Ready to collaborate? Let\'s get in touch!');
+console.log('🎯 Press R to restart the skill bubble animation!');
