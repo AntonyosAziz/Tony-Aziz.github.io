@@ -275,14 +275,15 @@ body {
 }
 
 .profile-image {
-    width: 273px;
-    height: 392px;
+    width: 331px;
+    height: 433px;
     object-fit: cover;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(5.7px);
+    top: 300px;
+    left: 180px;
+    transform: matrix(1, 0, 0, 1, -136.5, -196);
+    mask: radial-gradient(circle at center, transparent 0%, transparent calc(100% - 5px), rgba(0,0,0,0.1) calc(100% - 3px), rgba(0,0,0,0.5) calc(100% - 1px), rgba(0,0,0,1) 100%);
+    -webkit-mask: radial-gradient(circle at center, transparent 0%, transparent calc(100% - 5px), rgba(0,0,0,0.1) calc(100% - 3px), rgba(0,0,0,0.5) calc(100% - 1px), rgba(0,0,0,1) 100%);
 }
 
 .about-title {
