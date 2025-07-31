@@ -30,9 +30,14 @@ window.addEventListener('scroll', function() {
     const skillBubbles = document.querySelectorAll('.skill-bubble');
 
     skillBubbles.forEach((bubble, index) => {
-        const speed = 0.5 + (index * 0.1);
+        const speed = 0.2 + (index * 0.05);
         const yPos = -(scrolled * speed);
-        bubble.style.transform = `translateY(${yPos}px)`;
+        const rotateAmount = scrolled * 0.1;
+
+        // Only apply parallax if not being hovered
+        if (!bubble.matches(':hover')) {
+            bubble.style.transform = `translateY(${yPos}px) rotate(${rotateAmount}deg)`;
+        }
     });
 });
 
