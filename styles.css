@@ -136,6 +136,16 @@ body {
     color: #FFF;
     animation: float 6s ease-in-out infinite;
     transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-bubble:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    transform: translateY(-5px) scale(1.1);
+    animation-play-state: paused;
+    z-index: 10;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
 }
 
 .skill-1 { top: 5%; left: 15%; animation-delay: 0s; }
