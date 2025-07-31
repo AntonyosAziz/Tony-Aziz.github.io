@@ -24,16 +24,36 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Parallax effect for skill bubbles
+// Enhanced skill bubble interactions
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const skillBubbles = document.querySelectorAll('.skill-bubble');
+    const heroSection = document.querySelector('.hero-section');
 
-    skillBubbles.forEach((bubble, index) => {
-        const speed = 0.5 + (index * 0.1);
-        const yPos = -(scrolled * speed);
-        bubble.style.transform = `translateY(${yPos}px)`;
-    });
+    if (heroSection) {
+        const heroRect = heroSection.getBoundingClientRect();
+        const heroVisible = heroRect.top < window.innerHeight && heroRect.bottom > 0;
+
+        // Only apply scroll effects when hero is visible and not being hovered
+        if (heroVisible) {
+            skillBubbles.forEach((bubble, index) => {
+                if (!bubble.matches(':hover')) {
+                    const rotateAmount = scrolled * 0.05;
+                    const currentTransform = bubble.style.transform || '';
+
+                    // Preserve existing transform values and add rotation
+                    if (currentTransform.includes('translateX')) {
+                        const translateMatch = currentTransform.match(/translateX\([^)]+\)/);
+                        const translateX = translateMatch ? translateMatch[0] : 'translateX(-50%)';
+                        const translateY = currentTransform.includes('translateY') ?
+                            currentTransform.match(/translateY\([^)]+\)/)?.[0] || 'translateY(0px)' : 'translateY(0px)';
+
+                        bubble.style.transform = `${translateX} ${translateY} rotate(${rotateAmount}deg)`;
+                    }
+                }
+            });
+        }
+    }
 });
 
 // Intersection Observer for fade-in animations
@@ -123,7 +143,33 @@ window.addEventListener('load', function() {
     }
 });
 
+// Function to restart skill bubble animation
+function restartSkillAnimation() {
+    const skillBubbles = document.querySelectorAll('.skill-bubble');
+    skillBubbles.forEach(bubble => {
+        bubble.style.animation = 'none';
+        bubble.offsetHeight; // Trigger reflow
+        bubble.style.animation = 'dropAndColor 4s ease-out forwards, colorChange 3s ease-in-out infinite 4s';
+    });
+}
+
+// Restart animation when page loads
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        restartSkillAnimation();
+    }, 500);
+});
+
+// Add keyboard shortcut to restart animation (press 'R' key)
+document.addEventListener('keydown', function(e) {
+    if (e.key.toLowerCase() === 'r' && !e.ctrlKey && !e.metaKey) {
+        restartSkillAnimation();
+        console.log('🎯 Animation restarted! Press R to restart again.');
+    }
+});
+
 // Console greeting
 console.log('🎨 Welcome to Tony\'s Portfolio!');
 console.log('✨ Design • Code • Create');
 console.log('📧 Ready to collaborate? Let\'s get in touch!');
+console.log('🎯 Press R to restart the skill bubble animation!');

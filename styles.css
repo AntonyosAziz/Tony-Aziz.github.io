@@ -110,44 +110,145 @@ body {
 
 .skills-bubbles {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     pointer-events: none;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .skill-bubble {
     position: absolute;
-    width: 190px;
-    height: 190px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     text-align: center;
     color: #FFF;
-    animation: float 6s ease-in-out infinite;
+    animation: dropAndColor 4s ease-out forwards, colorChange 3s ease-in-out infinite 4s;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(-100vh);
+    will-change: transform, opacity;
 }
 
-.skill-1 { top: 20%; left: 5%; animation-delay: 0s; }
-.skill-2 { top: 15%; left: 25%; animation-delay: 1s; }
-.skill-3 { top: 40%; left: 15%; animation-delay: 2s; }
-.skill-4 { top: 35%; left: 35%; animation-delay: 3s; }
-.skill-5 { top: 20%; right: 10%; animation-delay: 4s; }
-.skill-6 { top: 60%; left: 8%; animation-delay: 5s; }
-.skill-7 { top: 50%; left: 28%; animation-delay: 1.5s; }
-.skill-8 { top: 65%; left: 48%; animation-delay: 2.5s; }
-.skill-9 { top: 45%; right: 8%; animation-delay: 3.5s; }
+.skill-bubble:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 3px solid rgba(255, 255, 255, 0.6) !important;
+    transform: translateY(-10px) scale(1.15) !important;
+    animation-play-state: paused;
+    z-index: 10;
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+}
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
+/* Triangle Formation - Starting positions off-screen */
+.skill-1 {
+    top: -80px;
+    left: calc(50% - 80px);
+    animation-delay: 0.2s;
+}
+
+.skill-7 {
+    top: -20px;
+    left: calc(35% - 80px);
+    animation-delay: 0.4s;
+}
+.skill-8 {
+    top: -20px;
+    left: calc(65% - 80px);
+    animation-delay: 0.6s;
+}
+
+.skill-6 {
+    top: 40px;
+    left: calc(20% - 80px);
+    animation-delay: 0.8s;
+}
+.skill-2 {
+    top: 40px;
+    left: calc(50% - 80px);
+    animation-delay: 1.0s;
+}
+.skill-3 {
+    top: 40px;
+    left: calc(80% - 80px);
+    animation-delay: 1.2s;
+}
+
+.skill-4 {
+    top: 100px;
+    left: calc(35% - 80px);
+    animation-delay: 1.4s;
+}
+.skill-5 {
+    top: 100px;
+    left: calc(65% - 80px);
+    animation-delay: 1.6s;
+}
+
+.skill-9 {
+    top: 160px;
+    left: calc(50% - 80px);
+    animation-delay: 1.8s;
+}
+
+@keyframes dropAndColor {
+    0% {
+        opacity: 0;
+        transform: translateY(-100vh) rotate(0deg);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(10px) rotate(0deg);
+    }
+    80% {
+        transform: translateY(-5px) rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) rotate(0deg);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes colorChange {
+    0%, 100% {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(0px) scale(1);
+    }
+    25% {
+        background: rgba(223, 37, 49, 0.8);
+        border-color: #DF2531;
+        transform: translateY(-5px) scale(1.05);
+    }
+    50% {
+        background: rgba(0, 0, 0, 0.8);
+        border-color: #000;
+        transform: translateY(0px) scale(1);
+    }
+    75% {
+        background: rgba(223, 37, 49, 0.8);
+        border-color: #DF2531;
+        transform: translateY(-5px) scale(1.05);
+    }
 }
 
 .hero-content {
@@ -478,26 +579,55 @@ body {
     .navigation {
         padding: 0 50px;
     }
-    
+
     .nav-links {
         gap: 50px;
     }
-    
+
+    .skill-bubble {
+        width: 140px;
+        height: 140px;
+        font-size: 18px;
+    }
+
+    .skills-bubbles {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
     .projects-container {
         grid-template-rows: repeat(3, 250px);
         height: auto;
     }
-    
+
     .contact-content {
         flex-direction: column;
         gap: 30px;
     }
-    
+
     .social-links {
         flex-direction: row;
         justify-content: center;
         min-width: auto;
     }
+}
+
+@media (max-width: 992px) {
+    .skills-bubbles {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+
+    .skill-bubble {
+        width: 120px;
+        height: 120px;
+        font-size: 16px;
+    }
+
+    /* Adjust triangle spacing for smaller screens */
+    .skill-1 { top: -60px; }
+    .skill-7, .skill-8 { top: -10px; }
+    .skill-6, .skill-2, .skill-3 { top: 30px; }
+    .skill-4, .skill-5 { top: 80px; }
+    .skill-9 { top: 130px; }
 }
 
 @media (max-width: 768px) {
@@ -520,7 +650,48 @@ body {
     }
     
     .skills-bubbles {
-        display: none;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none;
+    }
+
+    .skill-bubble {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        font-size: 16px;
+        animation: mobileColorChange 3s ease-in-out infinite;
+        margin: 0 auto;
+        opacity: 1;
+        transform: none;
+    }
+
+    .skill-1, .skill-2, .skill-3, .skill-4, .skill-5,
+    .skill-6, .skill-7, .skill-8, .skill-9 {
+        top: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+        animation-delay: 0s;
+    }
+
+    @keyframes mobileColorChange {
+        0%, 100% {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        50% {
+            background: rgba(223, 37, 49, 0.6);
+            border-color: #DF2531;
+        }
     }
     
     .hero-section {
