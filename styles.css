@@ -148,45 +148,80 @@ body {
 .skill-bubble:hover {
     background: rgba(255, 255, 255, 0.3) !important;
     border: 3px solid rgba(255, 255, 255, 0.6) !important;
-    transform: translateX(-50%) translateY(-10px) scale(1.15) !important;
+    transform: translateY(-10px) scale(1.15) !important;
     animation-play-state: paused;
     z-index: 10;
     box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
 }
 
-/* Triangle Formation - Row 1 (top) */
-.skill-1 { top: -80px; left: 50%; transform: translateX(-50%) translateY(-100vh); animation-delay: 0.2s; }
+/* Triangle Formation - Starting positions off-screen */
+.skill-1 {
+    top: -80px;
+    left: calc(50% - 80px);
+    animation-delay: 0.2s;
+}
 
-/* Triangle Formation - Row 2 */
-.skill-7 { top: -20px; left: 35%; transform: translateX(-50%) translateY(-100vh); animation-delay: 0.4s; }
-.skill-8 { top: -20px; left: 65%; transform: translateX(-50%) translateY(-100vh); animation-delay: 0.6s; }
+.skill-7 {
+    top: -20px;
+    left: calc(35% - 80px);
+    animation-delay: 0.4s;
+}
+.skill-8 {
+    top: -20px;
+    left: calc(65% - 80px);
+    animation-delay: 0.6s;
+}
 
-/* Triangle Formation - Row 3 */
-.skill-6 { top: 40px; left: 20%; transform: translateX(-50%) translateY(-100vh); animation-delay: 0.8s; }
-.skill-2 { top: 40px; left: 50%; transform: translateX(-50%) translateY(-100vh); animation-delay: 1.0s; }
-.skill-3 { top: 40px; left: 80%; transform: translateX(-50%) translateY(-100vh); animation-delay: 1.2s; }
+.skill-6 {
+    top: 40px;
+    left: calc(20% - 80px);
+    animation-delay: 0.8s;
+}
+.skill-2 {
+    top: 40px;
+    left: calc(50% - 80px);
+    animation-delay: 1.0s;
+}
+.skill-3 {
+    top: 40px;
+    left: calc(80% - 80px);
+    animation-delay: 1.2s;
+}
 
-/* Triangle Formation - Row 4 */
-.skill-4 { top: 100px; left: 35%; transform: translateX(-50%) translateY(-100vh); animation-delay: 1.4s; }
-.skill-5 { top: 100px; left: 65%; transform: translateX(-50%) translateY(-100vh); animation-delay: 1.6s; }
+.skill-4 {
+    top: 100px;
+    left: calc(35% - 80px);
+    animation-delay: 1.4s;
+}
+.skill-5 {
+    top: 100px;
+    left: calc(65% - 80px);
+    animation-delay: 1.6s;
+}
 
-/* Triangle Formation - Row 5 (bottom) */
-.skill-9 { top: 160px; left: 50%; transform: translateX(-50%) translateY(-100vh); animation-delay: 1.8s; }
+.skill-9 {
+    top: 160px;
+    left: calc(50% - 80px);
+    animation-delay: 1.8s;
+}
 
 @keyframes dropAndColor {
     0% {
         opacity: 0;
-        transform: translateX(-50%) translateY(-100vh) rotate(0deg);
+        transform: translateY(-100vh) rotate(0deg);
         background: rgba(255, 255, 255, 0.1);
         border-color: rgba(255, 255, 255, 0.3);
     }
-    70% {
-        transform: translateX(-50%) translateY(0px) rotate(0deg);
+    60% {
         opacity: 1;
+        transform: translateY(10px) rotate(0deg);
+    }
+    80% {
+        transform: translateY(-5px) rotate(0deg);
     }
     100% {
         opacity: 1;
-        transform: translateX(-50%) translateY(0px) rotate(0deg);
+        transform: translateY(0px) rotate(0deg);
         background: rgba(255, 255, 255, 0.1);
         border-color: rgba(255, 255, 255, 0.3);
     }
@@ -196,22 +231,22 @@ body {
     0%, 100% {
         background: rgba(255, 255, 255, 0.1);
         border-color: rgba(255, 255, 255, 0.3);
-        transform: translateX(-50%) translateY(0px) scale(1);
+        transform: translateY(0px) scale(1);
     }
     25% {
         background: rgba(223, 37, 49, 0.8);
         border-color: #DF2531;
-        transform: translateX(-50%) translateY(-5px) scale(1.05);
+        transform: translateY(-5px) scale(1.05);
     }
     50% {
         background: rgba(0, 0, 0, 0.8);
         border-color: #000;
-        transform: translateX(-50%) translateY(0px) scale(1);
+        transform: translateY(0px) scale(1);
     }
     75% {
         background: rgba(223, 37, 49, 0.8);
         border-color: #DF2531;
-        transform: translateX(-50%) translateY(-5px) scale(1.05);
+        transform: translateY(-5px) scale(1.05);
     }
 }
 
